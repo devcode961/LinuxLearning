@@ -1,0 +1,35 @@
+user's primary group/login group is stored in /etc/passwd file.
+user's secondary groups are stored in /etc/groups file.
+
+Primary or Login Group: is the group that is assigned to the files that are created by the user. Usually, the name of the primary group is the same as the name of the user. Each user must belong to exactly one primary group.
+
+Secondary Group: used to grant certain privileges to a set of users. A user can be a member of zero or more secondary groups.
+
+1.groups: groups commands will list primary and secondary groups of currently logged in user.
+2. To get primary and secondary groups of a specific user, use :
+                   groups <username>
+The first group name in the output of above command is the primary group
+
+3.The id command prints information about the specified user and its groups.If the username is omitted it shows information for the current user.
+
+Eg. id swarnim will print following: 
+uid=1001(swarnim) gid=1001(swarnim) groups=1001(swarnim),27(sudo)
+
+If we want to print only names and not id we can use -n option with id command. -g option will print the primary group, -G will print secondary group names as well
+
+id -ng: will print name of primary group
+id -nG will print the names of primary and secondary group names for current user
+
+4.To list all members of a group, we use : getent group <group_name>
+
+5.To view all groups present on the system simply open the /etc/group file. Each line in this file represents information for one group.
+
+less /etc/group
+
+Another option is to use the getent command which displays entries from databases configured in /etc/nsswitch.conf file including the group database which we can use to query a list of all groups.
+
+To get a list of all groups, type the following command:
+getent group
+
+The output is the same as when displaying the content of the /etc/group file. If you are using LDAP for user authentication the getent will display all groups from both /etc/group file and LDAP database.
+
