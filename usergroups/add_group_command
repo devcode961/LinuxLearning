@@ -1,0 +1,26 @@
+groups in linux are used to set priviliges like read,write and execute on resources that can be shared between users belonging to a group.
+
+We can create a group using groupadd command.General syntax is:
+
+GROUPADD [OPTIONS] GROUPNAME
+
+Only root user or user with sudo privileges can create a group.
+groupadd commands creates a new group with specified OPTIONS along with default values in /etc/login.defs
+
+
+groupadd <group_name> will create a new group
+
+GID or group id will be taken as the next available GID from /etc/login.defs
+
+If we want to specify our own GID we can also do so : 
+
+groupadd -g 1010 mytestgroup
+
+if the GID already exist it will output error.
+
+If we want to create group with GID that already exists, we can use:
+
+groupadd -o -g 1010 mytestgroup
+
+-o(--non-unique) option will allow to create group with existing group id.
+ 
