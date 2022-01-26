@@ -1,0 +1,10 @@
+********************** DELETE A GROUP*************************************
+
+We can delete an existing group by using groupdel command.
+Syntax :  groupdel <group_name>
+Only the root or a user with sudo privileges can remove groups.
+*** If we want to delete primary/login group of a user, then we have to delete the user associated with group first.
+
+groupdel mygroup
+
+** If we try to delete a group that does not exists then we will get an eror on output.
