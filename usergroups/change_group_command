@@ -1,0 +1,35 @@
+****************** Modify Group Command***********************************
+
+groupmod command in Linux is used to modify or change the existing group on Linux system. It can be handled by superuser or root user. Basically, it modifies a group definition on the system by modifying the right entry in the database of the group.
+
+Syntax:
+
+groupmod [option] GROUP
+Files: The groupmod command has following files.
+
+/etc/group: Group Account Information.
+/etc/gshadow: Secured group account information.
+/etc/login.def: Shadow passwd suite configuration.
+/etc/passwd: User account information.
+
+***************************Exit Values:***********************************
+0: Success.
+2: Invalid command Syntax.
+3: Invalid argument to option.
+4: specified group doesn’t exist.
+6: specified group doesn’t exist.
+9: group name already in use.
+10: can’t update group file.
+***************************************************************************
+
+*************************groupmod command options**************************
+-g, –gid GID: The group ID of the given GROUP will be changed to GID.
+-n, –new-name NEW_GROUP: The name of group will change into newname.
+-h, –help: This option display help massage and exist.
+-o, –non-unique: This option used with the -g option that allow to change the group GID to a non-unique value.
+-p, –password PASSWORD: This gives the encrypted password.
+-R, –root CHROOT_DIR: Apply changes in the CHROOT_DIR directory and use the configuration files from the CHROOT_DIR directory.
+Example: Below command will change the group group_old to group_new using -n option.
+
+groupmod -n group_new group_old
+***************************************************************************
