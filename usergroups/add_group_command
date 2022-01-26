@@ -23,4 +23,21 @@ If we want to create group with GID that already exists, we can use:
 groupadd -o -g 1010 mytestgroup
 
 -o(--non-unique) option will allow to create group with existing group id.
- 
+
+****Creating a system group****
+System groups are similiar to normal user groups.System groups are created for system opereation tasks such as creating a backup etc. The GID of system groups is assigned from /etc/login.defs in the range of SYS_GID_MIN and SYS_GID_MAX values
+
+We use -r(--system) option to craete a system group: 
+
+groupadd -r mysystemgroup
+
+************Overriding default values in /etc/login.defs*******************
+We can override the range of normal GIDs and system GIDs from /etc/login.defs when creating a group. We use -K(--key) option to override GID values.
+
+groupadd -K GID_MIN=1200 -K GID_MAX=1500 mygroup
+
+We can also set password while creating a group, however it is strongly discouraged practice to apply password on group.
+
+groupadd -p mypassword mygroup
+
+
