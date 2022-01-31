@@ -1,3 +1,16 @@
+**************************Adding user to a group***************************
 Following text is a decription of commands that are used to add user to a group
 
+Information about a user's primary group can be found in /etc/passwd file.
 
+***************************************************************************
+
+To add user to a secondary group we use the following command: 
+
+sudo usermod -a -G groupname/groupnames username
+
+Note: If we omit the -a option the user will be removed from any secondary group that it is part of and added to the groupname(s) after the -G option
+
+If successful the command does not produces any output.
+
+Commands throws warning if username or groupname does not exists.
