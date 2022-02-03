@@ -9,7 +9,7 @@ Files: The groupmod command has following files.
 
 /etc/group: Group Account Information.
 /etc/gshadow: Secured group account information.
-/etc/login.def: Shadow passwd suite configuration.
+/etc/login.defs: Shadow passwd suite configuration.
 /etc/passwd: User account information.
 
 ***************************Exit Values:***********************************
