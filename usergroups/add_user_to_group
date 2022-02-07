@@ -1,4 +1,5 @@
 **************************Adding user to a group***************************
+
 Following text is a decription of commands that are used to add user to a group
 
 Information about a user's primary group can be found in /etc/passwd file.
@@ -14,3 +15,42 @@ Note: If we omit the -a option the user will be removed from any secondary group
 If successful the command does not produces any output.
 
 Commands throws warning if username or groupname does not exists.
+
+To add user to muiltiple groups in same command we use : 
+
+sudo usermod -a -G group1,group2,group3 username
+
+**To delete a user from a group, we use gpasswd command: 
+
+sudo gpasswd -d username groupname
+
+**To add a new group --> sudo groupadd <groupname>
+
+**To delete an existing group --> sudo groupdel <groupname>
+
+**How to change User's primary or login group:
+
+sudo usermod -g <groupname> <username>
+
+Eg. : sudo usermod -g developers swarnim
+
+Above example will change the primary group of user swarnim to developers
+
+**How to create user and assignn groups in a single command: 
+
+sudo useradd -g <primary_group> -G <secondary_group1,secondary_group2> <username>
+
+Eg. To create a user with name "swarnim" and assign primary group as "developer" and secondary groups as "lpadmin,linuxize" we execute below command 
+
+
+####### sudo useradd -g developer -G lpadmin,linuxize swarnim ##########
+
+**To display group information of user with id command-->  id <username>
+
+**To display secondary groups of a user we use groups command:
+
+groups <username> It will display all the secondary groups of user
+
+If we execute groups or id command without supplying the argument then it will output group names for the currently logged in user
+
+
